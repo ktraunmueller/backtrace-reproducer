@@ -1,0 +1,105 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 29,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_Swift_COMPILER": "$env{SWIFT_TOOLCHAIN_PATH}/bin/swiftc.exe"
+      }
+    },
+    {
+      "name": "x64-base",
+      "hidden": true,
+      "inherits": "base",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_SYSTEM_PROCESSOR": "AMD64"
+      }
+    },
+    {
+      "name": "arm64-base",
+      "hidden": true,
+      "inherits": "base",
+      "architecture": {
+        "value": "arm64",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_SYSTEM_PROCESSOR": "ARM64"
+      }
+    },
+    {
+      "name": "debug-x64",
+      "displayName": "Debug x64",
+      "inherits": "x64-base",
+      "binaryDir": "${sourceDir}/build/debug-x64",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "release-x64",
+      "displayName": "Release x64",
+      "inherits": "x64-base",
+      "binaryDir": "${sourceDir}/build/release-x64",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "relwithdebinfo-x64",
+      "displayName": "RelWithDebInfo x64",
+      "inherits": "x64-base",
+      "binaryDir": "${sourceDir}/build/relwithdebinfo-x64",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "debug-arm64",
+      "displayName": "Debug ARM64",
+      "inherits": "arm64-base",
+      "binaryDir": "${sourceDir}/build/debug-arm64",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "release-arm64",
+      "displayName": "Release ARM64",
+      "inherits": "arm64-base",
+      "binaryDir": "${sourceDir}/build/release-arm64",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "relwithdebinfo-arm64",
+      "displayName": "RelWithDebInfo ARM64",
+      "inherits": "arm64-base",
+      "binaryDir": "${sourceDir}/build/relwithdebinfo-arm64",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "debug-x64", "configurePreset": "debug-x64" },
+    { "name": "release-x64", "configurePreset": "release-x64" },
+    { "name": "relwithdebinfo-x64", "configurePreset": "relwithdebinfo-x64" },
+    { "name": "debug-arm64", "configurePreset": "debug-arm64" },
+    { "name": "release-arm64", "configurePreset": "release-arm64" },
+    { "name": "relwithdebinfo-arm64", "configurePreset": "relwithdebinfo-arm64" }
+  ]
+}
+

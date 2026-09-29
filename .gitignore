@@ -1,0 +1,16 @@
+/build/
+/out/
+/.installer/
+/.packages/
+/.tools/
+/artifacts/
+*.msix
+*.pfx
+*.cer
+*.pdb
+*.pri
+*.inventory.txt
+*.environment.txt
+/environment-report.txt
+/CMakeUserPresets.json
+

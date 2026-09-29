@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+         xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+         xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities">
+  <Identity Name="SwiftBacktraceReproducer"
+            Version="1.0.0.0"
+            Publisher="CN=Swift Backtrace Reproducer"
+            ProcessorArchitecture="@REPRODUCER_ARCHITECTURE@" />
+  <Properties>
+    <DisplayName>Swift Backtrace Reproducer</DisplayName>
+    <PublisherDisplayName>Swift Backtrace Reproducer</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop"
+                        MinVersion="10.0.17763.0"
+                        MaxVersionTested="10.0.26200.0" />
+  </Dependencies>
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+  <Applications>
+    <Application Id="SwiftBacktraceReproducer"
+                 Executable="SwiftBacktraceReproducer.exe"
+                 EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements DisplayName="Swift Backtrace Reproducer"
+                          Description="Minimal Swift backtrace reproducer"
+                          BackgroundColor="transparent"
+                          Square150x150Logo="Assets\Logo.png"
+                          Square44x44Logo="Assets\AppList.png" />
+    </Application>
+  </Applications>
+</Package>
+
